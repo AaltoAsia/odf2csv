@@ -22,11 +22,11 @@ parser = argparse.ArgumentParser(description=
 the input O-DF data is sorted ascending in time (within an InfoItem, unless --sort flag is given).''')
 
 parser.add_argument('files', metavar='o-df-file', type=open, nargs='+',
-                                        help='O-DF or O-MI file')
+                                        help='O-DF or O-MI file (in xml format). Multiple files can be given.')
 parser.add_argument('--output', '-o', dest='output',# type=argparse.FileType('w'),
                     help='Output csv file')
 
-parser.add_argument('--overwrite', '-f', dest='overwrite', default=False, action='store_true',
+parser.add_argument('--overwrite', '-f', '--force' dest='overwrite', default=False, action='store_true',
                     help='Overwrite the output csv file if it already exists.')
 
 parser.add_argument('--xmlns', '--ns', '--odf-xmlns', dest='odfVersion', default="http://www.opengroup.org/xsd/odf/1.0/",
