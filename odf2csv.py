@@ -26,7 +26,7 @@ parser.add_argument('files', metavar='o-df-file', type=open, nargs='+',
 parser.add_argument('--output', '-o', dest='output',# type=argparse.FileType('w'),
                     help='Output csv file')
 
-parser.add_argument('--overwrite', '-f', '--force' dest='overwrite', default=False, action='store_true',
+parser.add_argument('--overwrite', '-f', '--force', dest='overwrite', default=False, action='store_true',
                     help='Overwrite the output csv file if it already exists.')
 
 parser.add_argument('--xmlns', '--ns', '--odf-xmlns', dest='odfVersion', default="http://www.opengroup.org/xsd/odf/1.0/",
