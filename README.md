@@ -1,5 +1,5 @@
 # odf2csv
-Command line tool for converting O-DF to CSV
+Command line tool for converting O-DF to CSV. **Needs python3.7 or newer.**
 
 Usage
 --------
