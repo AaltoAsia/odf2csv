@@ -1,5 +1,5 @@
 #!python3
-import glob, csv, sys, os, argparse
+import glob, csv, sys, os, argparse, gzip
 from datetime import datetime, timedelta, timezone
 from queue import PriorityQueue, Empty
 
@@ -111,8 +111,15 @@ def find(root, query): return root.iterfind(query, namespaces=ns)
 
 
 
+def processInputFile(file):
+    name = file.name
+    if name.endswith(".gz"):
+        file.close()
+        return gzip.open(file.name, mode="r")
+    else: return file
+
 debug("Parsing xml files:", args.files)
-dataRoots = [etree.parse(xmlFile) for xmlFile in args.files]
+dataRoots = [etree.parse(processInputFile(xmlFile)) for xmlFile in args.files]
 
 infoItemSelector = ''#'//odf:InfoItem' # TODO: do not select MetaData InfoItems
 debug("Filtering data with xpaths:", args.select, ',', infoItemSelector)
