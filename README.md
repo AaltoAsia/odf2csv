@@ -9,7 +9,7 @@ usage: `odf2csv.py [-h] [--output OUTPUT] [--overwrite] [--xmlns ODFVERSION] [--
 Parses O-DF xml to csv format. It is essential that the xmlns is correct and the input O-DF data is sorted ascending in time (within an InfoItem, unless --sort flag is given).
 
 positional arguments:
-  * `o-df-file`             O-DF or O-MI file (in xml format). Multiple files can be given.
+  * `o-df-file`           O-DF or O-MI file (in xml format, can be gzipped with ".gz" extension). Multiple files can be given.
 
 optional arguments:
   * `-h`, `--help`            show this help message and exit

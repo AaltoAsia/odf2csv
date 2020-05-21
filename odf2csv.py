@@ -22,7 +22,7 @@ parser = argparse.ArgumentParser(description=
 the input O-DF data is sorted ascending in time (within an InfoItem, unless --sort flag is given).''')
 
 parser.add_argument('files', metavar='o-df-file', type=open, nargs='+',
-                                        help='O-DF or O-MI file (in xml format). Multiple files can be given.')
+                                        help='O-DF or O-MI file (in xml format, can be gzipped with ".gz" extension). Multiple files can be given.')
 parser.add_argument('--output', '-o', dest='output',# type=argparse.FileType('w'),
                     help='Output csv file')
 
@@ -80,7 +80,7 @@ if 'output' not in args or args.output == None:
     debug("No output file name given, using:", filename)
     args.output = filename
 
-if not args.overwrite and os.path.exists(args.output): ## FIXME
+if not args.overwrite and os.path.exists(args.output):
     eprint("ERROR: output file", args.output, " exists!")
     sys.exit(3)
 
