@@ -75,12 +75,12 @@ debug = args.debug
 odfVersion = args.odfVersion
 ns = {"odf" : odfVersion, "d": odfVersion, "omi": args.omiVersion, "m": args.omiVersion}
 
-if 'output' not in args:
+if 'output' not in args or args.output == None:
     filename = os.path.splitext(args.files[0].name)[0] + ".csv"
     debug("No output file name given, using:", filename)
     args.output = filename
 
-if not args.overwrite and os.path.exists(args.output):
+if not args.overwrite and os.path.exists(args.output): ## FIXME
     eprint("ERROR: output file", args.output, " exists!")
     sys.exit(3)
 
