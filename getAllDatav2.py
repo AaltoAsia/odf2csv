@@ -138,7 +138,7 @@ def hierarchyRequest(s):
 
         # fetch the leaf to check whether it is Object or InfoItem
 
-        query = url + "/Objects/" + '/'.join(pathSegments)
+        query = url + "Objects/" + '/'.join(pathSegments)
         result = s.get(query)
         if result.status_code != 200:
             eprint('O-DF query', query, 'failed (--odf-path):', result.text)
