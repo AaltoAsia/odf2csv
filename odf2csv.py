@@ -87,7 +87,7 @@ if not args.overwrite and os.path.exists(args.output):
 pathSelectorXpath = etree.XPath(pathSelectorStr, namespaces=ns)
 args.select = etree.XPath(args.select, namespaces=ns)
 args.headerSelect = etree.XPath(args.headerSelect, namespaces=ns)
-args.output = open(args.output, 'w')
+args.output = open(args.output, 'w', newline='')
 
 
 debug("Note: Works correctly with O-DF hierarchy depth up to", DEFAULTS_MAX_HEADER_PATH_LENGTH)
