@@ -211,7 +211,7 @@ if valueQueue.empty():
     sys.exit(5)
 
 # 0. headers
-writer = csv.writer(args.output)
+writer = csv.writer(args.output, encoding='utf-8')
 #headers = ['UTC-Time'] + list(map(lambda x: x.header, items.values()))
 writer.writerow(headers)
 
