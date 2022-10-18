@@ -87,7 +87,7 @@ if not args.overwrite and os.path.exists(args.output):
 pathSelectorXpath = etree.XPath(pathSelectorStr, namespaces=ns)
 args.select = etree.XPath(args.select, namespaces=ns)
 args.headerSelect = etree.XPath(args.headerSelect, namespaces=ns)
-args.output = open(args.output, 'w', newline='')
+args.output = open(args.output, 'w', newline='', encoding='utf-8')
 
 
 debug("Note: Works correctly with O-DF hierarchy depth up to", DEFAULTS_MAX_HEADER_PATH_LENGTH)
@@ -211,7 +211,7 @@ if valueQueue.empty():
     sys.exit(5)
 
 # 0. headers
-writer = csv.writer(args.output, encoding='utf-8')
+writer = csv.writer(args.output)
 #headers = ['UTC-Time'] + list(map(lambda x: x.header, items.values()))
 writer.writerow(headers)
 
