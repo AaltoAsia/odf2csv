@@ -262,8 +262,15 @@ while not valueQueue.empty():
 
     lastTime = timestamp
 
+if len(row) > 0:
+    writer.writerow(row)
+    rowCounter += 1
+
 status()
-debug("Row filling: average values/full_row =", round(valueCounter/(len(items)*rowCounter), 2))
+try:
+    debug("Row filling: average values/full_row =", round(valueCounter/(len(items)*rowCounter), 2))
+except ZeroDivisionError:
+    eprint("WARNING: 0 output rows!")
 
 args.output.close()
 
